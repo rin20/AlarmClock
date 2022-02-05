@@ -17,7 +17,9 @@
 		BC197C7D275B6BA30087FF3B /* AlarmClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC197C7C275B6BA30087FF3B /* AlarmClockUITests.swift */; };
 		BC197C7F275B6BA30087FF3B /* AlarmClockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC197C7E275B6BA30087FF3B /* AlarmClockUITestsLaunchTests.swift */; };
 		BC71185E2764B64D005FA1F2 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC71185D2764B64D005FA1F2 /* EditViewController.swift */; };
-		BC7118602764BF6D005FA1F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC71185F2764BF6D005FA1F2 /* ListViewController.swift */; };
+		BCCFE12C27AE8009000CFE6C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCFE12B27AE8009000CFE6C /* ListViewController.swift */; };
+		BCCFE12F27AE8025000CFE6C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCFE12D27AE8025000CFE6C /* TableViewCell.swift */; };
+		BCCFE13027AE8025000CFE6C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCFE12E27AE8025000CFE6C /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		BC197C7C275B6BA30087FF3B /* AlarmClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmClockUITests.swift; sourceTree = "<group>"; };
 		BC197C7E275B6BA30087FF3B /* AlarmClockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmClockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BC71185D2764B64D005FA1F2 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		BC71185F2764BF6D005FA1F2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BCCFE12B27AE8009000CFE6C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BCCFE12D27AE8025000CFE6C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		BCCFE12E27AE8025000CFE6C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +110,11 @@
 				BC197C5B275B6B9F0087FF3B /* AppDelegate.swift */,
 				BC197C5D275B6B9F0087FF3B /* SceneDelegate.swift */,
 				BC197C61275B6B9F0087FF3B /* Main.storyboard */,
+				BCCFE12D27AE8025000CFE6C /* TableViewCell.swift */,
+				BCCFE12E27AE8025000CFE6C /* TableViewCell.xib */,
 				BC197C5F275B6B9F0087FF3B /* ViewController.swift */,
 				BC71185D2764B64D005FA1F2 /* EditViewController.swift */,
-				BC71185F2764BF6D005FA1F2 /* ListViewController.swift */,
+				BCCFE12B27AE8009000CFE6C /* ListViewController.swift */,
 				BC197C64275B6BA20087FF3B /* Assets.xcassets */,
 				BC197C66275B6BA20087FF3B /* LaunchScreen.storyboard */,
 				BC197C69275B6BA20087FF3B /* Info.plist */,
@@ -238,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC197C68275B6BA20087FF3B /* LaunchScreen.storyboard in Resources */,
+				BCCFE13027AE8025000CFE6C /* TableViewCell.xib in Resources */,
 				BC197C65275B6BA20087FF3B /* Assets.xcassets in Resources */,
 				BC197C63275B6B9F0087FF3B /* Main.storyboard in Resources */,
 			);
@@ -267,7 +274,8 @@
 				BC71185E2764B64D005FA1F2 /* EditViewController.swift in Sources */,
 				BC197C60275B6B9F0087FF3B /* ViewController.swift in Sources */,
 				BC197C5C275B6B9F0087FF3B /* AppDelegate.swift in Sources */,
-				BC7118602764BF6D005FA1F2 /* ListViewController.swift in Sources */,
+				BCCFE12F27AE8025000CFE6C /* TableViewCell.swift in Sources */,
+				BCCFE12C27AE8009000CFE6C /* ListViewController.swift in Sources */,
 				BC197C5E275B6B9F0087FF3B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

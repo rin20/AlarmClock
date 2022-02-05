@@ -15,21 +15,32 @@ class EditViewController: UIViewController {
     @IBOutlet var Arrive: UIDatePicker!
     
     var Now: Date = Date()
-    var ReadyTime: Date!
-    var MoveTime: Date!
+    var ReadyTime: TimeInterval!
+    var MoveTime: TimeInterval!
     var ArriveTime: Date!
+    
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
     }
     
     @IBAction func save(){
-        ReadyTime = Ready.date
-        MoveTime = Move.date
+        ReadyTime = Ready.countDownDuration
+        MoveTime = Move.countDownDuration
         ArriveTime = Arrive.date
         print("あああ",ArriveTime)
+        let span = Date(timeInterval: -MoveTime, since: ArriveTime)
+        print("いい",span)
+        let spanS = Date(timeInterval: -ReadyTime, since: span)
+        print("ううう",spanS)
+//        let spanC = span / 3600 + ":" + (span % 3600) / 60 + "/" + (span % 3600) % 60
+//        let spanS = spanC.timeIntervalSince(MoveTime)
+        
     }
 
     /*
