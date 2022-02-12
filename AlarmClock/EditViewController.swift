@@ -9,37 +9,40 @@ import UIKit
 
 class EditViewController: UIViewController {
     
-    @IBOutlet var NowDate: UIDatePicker!
+    @IBOutlet var DateA: UIDatePicker!
+    @IBOutlet var Place: UITextField!
     @IBOutlet var Ready: UIDatePicker!
     @IBOutlet var Move: UIDatePicker!
     @IBOutlet var Arrive: UIDatePicker!
     
-    var Now: Date = Date()
+    let dateFormatter = DateFormatter()
+    
+    var date: Date!
+    var place: String!
     var ReadyTime: TimeInterval!
     var MoveTime: TimeInterval!
     var ArriveTime: Date!
-    
-
-    
+    var taskArray: [[String]] = [["日付"],["場所"],["出発時間"],["到着時間"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-    }
-    
-    @IBAction func save(){
+        date = DateA.date
+        place = Place.text
         ReadyTime = Ready.countDownDuration
         MoveTime = Move.countDownDuration
         ArriveTime = Arrive.date
-        print("あああ",ArriveTime)
+    }
+    
+    @IBAction func save(){
+        let format = dateFormatter.string(from: date)
+        let formatS = dateFormatter.string(from: ArriveTime)
         let span = Date(timeInterval: -MoveTime, since: ArriveTime)
-        print("いい",span)
         let spanS = Date(timeInterval: -ReadyTime, since: span)
-        print("ううう",spanS)
-//        let spanC = span / 3600 + ":" + (span % 3600) / 60 + "/" + (span % 3600) % 60
-//        let spanS = spanC.timeIntervalSince(MoveTime)
+        let formatT = dateFormatter.string(from: spanS)
+        taskArray.append([format,place,formatS,formatT])
+        print(taskArray)
         
     }
 

@@ -219,7 +219,9 @@
                     <navigationItem key="navigationItem" id="Kk9-yX-mRP"/>
                     <connections>
                         <outlet property="Arrive" destination="TFt-TU-4h2" id="1pm-Xw-iaQ"/>
+                        <outlet property="Date" destination="cm7-6J-Lsc" id="olO-fy-5MW"/>
                         <outlet property="Move" destination="Mgi-E9-3gz" id="hwi-f2-7Wo"/>
+                        <outlet property="Place" destination="vLR-YA-2iy" id="FiD-oY-KgF"/>
                         <outlet property="Ready" destination="gAm-mh-vG9" id="AMa-Ln-Qyn"/>
                     </connections>
                 </viewController>
@@ -259,6 +261,9 @@
                         <color key="backgroundColor" red="0.61152487990000004" green="0.77028173209999995" blue="0.88237076999999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="mcI-kT-iBp"/>
+                    <connections>
+                        <outlet property="tableView" destination="pHH-0G-rbj" id="Q7g-1u-O45"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olk-Ou-NdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,8 +9,8 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
+    @IBOutlet var tableView: UITableView!
+    var schArray: [[String]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CostomCell", for: indexPath) as! TableViewCell
+        
+        return cell
+        
     }
     
 
