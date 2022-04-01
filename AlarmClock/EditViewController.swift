@@ -16,34 +16,50 @@ class EditViewController: UIViewController {
     @IBOutlet var Arrive: UIDatePicker!
     
     let dateFormatter = DateFormatter()
+    let saveData: UserDefaults = UserDefaults.standard
+    let alert: UIAlertController = UIAlertController(title: "", message: "保存が完了しました", preferredStyle: .alert)
     
     var date: Date!
     var place: String!
     var ReadyTime: TimeInterval!
     var MoveTime: TimeInterval!
     var ArriveTime: Date!
-    var taskArray: [[String]] = [["日付"],["場所"],["出発時間"],["到着時間"]]
+    var taskArray: [[String]] = []
+    var cellNumD: Int!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        date = DateA.date
-        place = Place.text
-        ReadyTime = Ready.countDownDuration
-        MoveTime = Move.countDownDuration
-        ArriveTime = Arrive.date
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.locale = Locale.current
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        taskArray = saveData.object(forKey: "array") as! [[String]]
+       print(taskArray)
+        if cellNumD != nil{
+            Place.text = taskArray[cellNumD][1]
+            Arrive.date = dateFormatter.date(from: taskArray[cellNumD][2]) as! Date
+        }
     }
     
     @IBAction func save(){
-        let format = dateFormatter.string(from: date)
-        let formatS = dateFormatter.string(from: ArriveTime)
+        date = DateA.date
+        place = Place.text!
+        ReadyTime = Ready.countDownDuration
+        MoveTime = Move.countDownDuration
+        ArriveTime = Arrive.date
         let span = Date(timeInterval: -MoveTime, since: ArriveTime)
         let spanS = Date(timeInterval: -ReadyTime, since: span)
         let formatT = dateFormatter.string(from: spanS)
-        taskArray.append([format,place,formatS,formatT])
-        print(taskArray)
+        taskArray.append([dateFormatter.string(from: date),place,dateFormatter.string(from: ArriveTime),dateFormatter.string(from: spanS)])
+        saveData.set(taskArray, forKey: "array")
         
+//        self.dismiss(animated: true, completion: nil)
+         
     }
 
     /*

@@ -11,10 +11,17 @@ class ViewController: UIViewController {
     
     @IBOutlet var YMD: UILabel!
     @IBOutlet var Now : UILabel!
+    @IBOutlet var toList: UIButton!
+    @IBOutlet var schF: UITextView!
+    @IBOutlet var schS: UITextView!
+    
     var date = Date()
     var timer : Timer!
+    var schArray: [[String]] = []
+    
     let df = DateFormatter()
     let dfs = DateFormatter()
+    let saveData: UserDefaults = UserDefaults.standard
     
 //    df.dateFormat = "yyyy.MM.dd.HH:mm:ss"
 
@@ -24,13 +31,20 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        schArray = saveData.object(forKey: "array") as! [[String]]
         startTimer()
         df.dateFormat = "HH:mm:ss"
         df.locale = Locale.current
         dfs.dateFormat = "Y/M/D(E)"
         dfs.locale = Locale.current
-        if timer.isValid == true{
+        if saveData.object(forKey: "array") == nil{
+            toList.isEnabled = false
+        }else{
+            toList.isEnabled = true
         }
+       
+        schF.text = schArray[0][0] as? String
+        schS.text = schArray[1][0] as? String
     }
     
     override func viewWillDisappear(_ animated: Bool) {
