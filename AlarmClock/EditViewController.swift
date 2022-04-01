@@ -11,8 +11,7 @@ class EditViewController: UIViewController {
     
     @IBOutlet var DateA: UIDatePicker!
     @IBOutlet var Place: UITextField!
-    @IBOutlet var Ready: UIDatePicker!
-    @IBOutlet var Move: UIDatePicker!
+    @IBOutlet var Leave: UIDatePicker!
     @IBOutlet var Arrive: UIDatePicker!
     
     let dateFormatter = DateFormatter()
@@ -21,8 +20,7 @@ class EditViewController: UIViewController {
     
     var date: Date!
     var place: String!
-    var ReadyTime: TimeInterval!
-    var MoveTime: TimeInterval!
+    var LeaveTime: Date!
     var ArriveTime: Date!
     var taskArray: [[String]] = []
     var cellNumD: Int!
@@ -38,24 +36,23 @@ class EditViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if saveData.object(forKey: "array") != nil{
         taskArray = saveData.object(forKey: "array") as! [[String]]
        print(taskArray)
+        }
         if cellNumD != nil{
             Place.text = taskArray[cellNumD][1]
-            Arrive.date = dateFormatter.date(from: taskArray[cellNumD][2]) as! Date
+            Arrive.date = dateFormatter.date(from: taskArray[cellNumD][3]) as! Date
+            Leave.date = dateFormatter.date(from: taskArray[cellNumD][2]) as! Date
         }
     }
     
     @IBAction func save(){
         date = DateA.date
         place = Place.text!
-        ReadyTime = Ready.countDownDuration
-        MoveTime = Move.countDownDuration
+        LeaveTime = Leave.date
         ArriveTime = Arrive.date
-        let span = Date(timeInterval: -MoveTime, since: ArriveTime)
-        let spanS = Date(timeInterval: -ReadyTime, since: span)
-        let formatT = dateFormatter.string(from: spanS)
-        taskArray.append([dateFormatter.string(from: date),place,dateFormatter.string(from: ArriveTime),dateFormatter.string(from: spanS)])
+        taskArray.append([dateFormatter.string(from: date),place,dateFormatter.string(from: LeaveTime),dateFormatter.string(from: ArriveTime)])
         saveData.set(taskArray, forKey: "array")
         
 //        self.dismiss(animated: true, completion: nil)

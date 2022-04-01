@@ -23,15 +23,19 @@ class ViewController: UIViewController {
     let dfs = DateFormatter()
     let saveData: UserDefaults = UserDefaults.standard
     
-//    df.dateFormat = "yyyy.MM.dd.HH:mm:ss"
-
+    //    df.dateFormat = "yyyy.MM.dd.HH:mm:ss"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        schArray = saveData.object(forKey: "array") as! [[String]]
+        if saveData.object(forKey: "array") != nil{
+            schArray = saveData.object(forKey: "array") as! [[String]]
+            schF.text = schArray[0][0] as? String
+            schS.text = schArray[1][0] as? String
+        }
         startTimer()
         df.dateFormat = "HH:mm:ss"
         df.locale = Locale.current
@@ -42,9 +46,14 @@ class ViewController: UIViewController {
         }else{
             toList.isEnabled = true
         }
-       
-        schF.text = schArray[0][0] as? String
-        schS.text = schArray[1][0] as? String
+        
+//        if schArray != nil{
+//            schF.text = schArray[0][0] as? String
+//            schS.text = schArray[1][0] as? String
+//        }else{
+//            schF.text = ""
+//            schS.text = ""
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +61,7 @@ class ViewController: UIViewController {
     }
     
     func startTimer(){
-       timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.up), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.up), userInfo: nil, repeats: true)
     }
     
     @objc func up(){
@@ -60,6 +69,6 @@ class ViewController: UIViewController {
         Now.text = df.string(from: date)
         YMD.text = dfs.string(from: date)
     }
-
+    
 }
 
