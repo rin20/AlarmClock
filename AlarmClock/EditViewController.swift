@@ -17,7 +17,7 @@ class EditViewController: UIViewController {
     
     let dateFormatter = DateFormatter()
     let saveData: UserDefaults = UserDefaults.standard
-    let alert: UIAlertController = UIAlertController(title: "", message: "保存が完了しました", preferredStyle: .alert)
+    let alert: UIAlertController = UIAlertController(title: "保存", message: "保存が完了しました", preferredStyle: .alert)
     
     var date: Date!
     var place: String!
